@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/hello", hello)
+	http.HandleFunc("/env", env)
 	log.Fatal(http.ListenAndServe("0.0.0.0:8000", nil))
 }
 
 // says hello to world environment variable.
-func hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s\n", os.Getenv("WORLD"))
+func env(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, %s!\n", os.Getenv("WORLD"))
 }
